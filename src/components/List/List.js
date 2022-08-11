@@ -9,10 +9,13 @@ function List(props) {
     getPokemons(0).then((list)=>{setPokemonsList(list)});
   }, []);
   return (
-    <div className="List">
+    <div className="List__container">
+    <div className="List__list">
       {pokemonsList.map((pokemon) => (
         <PokemonCard pokemon={pokemon} key={pokemon.name}/>
       ))}
+      </div>
+      <button className="List__button">Load More</button>
     </div>
   );
 }
