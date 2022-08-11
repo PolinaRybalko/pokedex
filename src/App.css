@@ -10,3 +10,8 @@
   border: 1px solid;
   font-size: calc(10px + 2vmin);
 }
+
+.App__container{
+  display: flex;
+  flex-direction: row;
+}

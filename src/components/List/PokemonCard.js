@@ -1,13 +1,13 @@
 import "./PokemonCard.css";
+import display from "../helpers/displayString";
 
 function PokemonCard(props) {
-    function display(string)
-    {
-        return (string[0].toUpperCase() + string.slice(1));
-    }
   const thisPokemon = props.pokemon;
+  function clickHandler() {
+    props.onClick(thisPokemon);
+  }
   return (
-    <div className="PokemonCard">
+    <div className="PokemonCard" onClick={clickHandler}>
       <img alt={`${thisPokemon.name} depiction`} src={thisPokemon.imgURL} />
       {display(thisPokemon.name)}
       <div className="PokemonCard__types">
