@@ -1,6 +1,6 @@
-import display from "../helpers/displayString";
-import displayStat from "../helpers/displayStat";
-import displayNumber from "../helpers/displayNumber";
+import display from "../../helpers/displayString";
+import displayStat from "../../helpers/displayStat";
+import displayNumber from "../../helpers/displayNumber";
 import "./PokemonDetail.css";
 
 function PokemonDetail(props) {
@@ -14,7 +14,6 @@ function PokemonDetail(props) {
     <div className="PokemonDetail__container">
       <img alt={`${thisPokemon.name} depiction`} src={thisPokemon.imgURL} />
       <p>
-        {" "}
         {display(thisPokemon.name)} #{displayNumber(thisPokemon.id)}
       </p>
       <table>

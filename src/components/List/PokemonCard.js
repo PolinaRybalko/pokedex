@@ -1,5 +1,5 @@
 import "./PokemonCard.css";
-import display from "../helpers/displayString";
+import display from "../../helpers/displayString";
 
 function PokemonCard(props) {
   const thisPokemon = props.pokemon;
