@@ -3,18 +3,18 @@ async function getPokemons(offset) {
   if (offset === 0) {
     offsetString = "";
   }
-  const result = await fetch(
+  const response = await fetch(
     "https://pokeapi.co/api/v2/pokemon/?limit=12" + offsetString
   );
-  const response = await result.text();
-  const pokemons = await JSON.parse(response).results;
+  const result = await response.text();
+  const pokemons = JSON.parse(result).results;
   let pokemonsList = [];
   for (let pokemon of pokemons) {
-    const result = await fetch(
+    const response = await fetch(
       "https://pokeapi.co/api/v2/pokemon/" + pokemon.name
     );
-    const response = await result.text();
-    const properties = await JSON.parse(response);
+    const result = await response.text();
+    const properties = JSON.parse(result);
     pokemonsList.push({
       name: pokemon.name,
       imgURL: properties.sprites.front_default,

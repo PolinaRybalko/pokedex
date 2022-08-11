@@ -1,9 +1,9 @@
 async function getPokemonInfo(pokemon) {
-  const result = await fetch(
+  const response = await fetch(
     "https://pokeapi.co/api/v2/pokemon/" + pokemon.name
   );
-  const response = await result.text();
-  const pokemonInfo = await JSON.parse(response);
+  const result = await response.text();
+  const pokemonInfo = JSON.parse(result);
   let detailedPokemon = {
     ...pokemon,
     weight: pokemonInfo.weight,
