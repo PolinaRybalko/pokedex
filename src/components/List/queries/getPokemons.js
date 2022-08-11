@@ -8,7 +8,6 @@ async function getPokemons(offset) {
   );
   const response = await result.text();
   const pokemons = await JSON.parse(response).results;
-  console.log(pokemons);
   let pokemonsList = [];
   for (let pokemon of pokemons) {
     const result = await fetch(
