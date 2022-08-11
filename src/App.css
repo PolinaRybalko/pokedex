@@ -5,9 +5,8 @@
 
 .App__header {
   margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
+  width: 300px;
+  border: 1px solid;
   font-size: calc(10px + 2vmin);
 }
