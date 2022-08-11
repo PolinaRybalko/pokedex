@@ -1,0 +1,33 @@
+.PokemonDetail__container{
+    display: flex;
+    height: 340px;
+    width: 250px;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 10px;
+    margin: auto;
+}
+
+.PokemonDetail__without-border{
+    border: 0px;
+}
+
+.PokemonDetail__container img{
+    height: 96px;
+    width: 96px;
+    margin: auto;
+}
+
+.PokemonDetail__container p{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.PokemonDetail__container table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.PokemonDetail__container td, th{
+    border: 1px solid black;
+}

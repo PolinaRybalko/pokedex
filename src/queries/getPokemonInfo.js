@@ -10,6 +10,7 @@ async function getPokemonInfo(pokemon) {
     stats: pokemonInfo.stats.map((statObj) => {
       return { name: statObj.stat.name, baseValue: statObj.base_stat };
     }),
+    id: pokemonInfo.id,
   };
   return detailedPokemon;
 }
