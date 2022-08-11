@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard";
 import getPokemons from "./queries/getPokemons";
+import "./List.css";
 
 function List(props) {
   const [pokemonsList, setPokemonsList] = useState([]);
@@ -8,7 +9,7 @@ function List(props) {
     getPokemons(0).then((list)=>{setPokemonsList(list)});
   }, []);
   return (
-    <div>
+    <div className="List">
       {pokemonsList.map((pokemon) => (
         <PokemonCard pokemon={pokemon} key={pokemon.name}/>
       ))}
