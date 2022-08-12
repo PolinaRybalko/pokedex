@@ -1,15 +1,26 @@
-async function getPokemons(offset) {
+async function getPokemons(offset, type = "") {
   let offsetString = "&offset=" + offset;
   if (offset === 0) {
     offsetString = "";
   }
-  const response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon/?limit=12" + offsetString
-  );
+  let response = {};
+  if (type) {
+    response = await fetch("https://pokeapi.co/api/v2/type/" + type);
+  } else {
+    response = await fetch(
+      "https://pokeapi.co/api/v2/pokemon/?limit=12" + offsetString
+    );
+  }
   const result = await response.text();
-  const pokemons = JSON.parse(result).results;
+  let pokemons = {};
+  if (type) {
+    pokemons = JSON.parse(result).pokemon;
+  } else {
+    pokemons = JSON.parse(result).results;
+  }
   let pokemonsList = [];
-  for (let pokemon of pokemons) {
+  for (let pokemonObj of pokemons) {
+    const pokemon = type ? pokemonObj.pokemon : pokemonObj;
     const response = await fetch(
       "https://pokeapi.co/api/v2/pokemon/" + pokemon.name
     );
@@ -21,7 +32,11 @@ async function getPokemons(offset) {
       types: properties.types.map((typeObj) => typeObj.type.name),
     });
   }
-  return(pokemonsList);
+  if (type) {
+    return pokemonsList.slice(offset, offset + 12);
+  } else {
+    return pokemonsList;
+  }
 }
 
 export default getPokemons;

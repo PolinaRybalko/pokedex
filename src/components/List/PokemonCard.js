@@ -5,8 +5,13 @@ import colorOfType from "../../helpers/colorOfType";
 
 function PokemonCard(props) {
   const thisPokemon = props.pokemon;
-  function clickHandler() {
-    props.onClick(thisPokemon);
+  function clickHandler(event) {
+    if (event.target.nodeName !== "BUTTON") {
+      props.onClick(thisPokemon);
+    }
+  }
+  function selectTypeHandler(type) {
+    props.onSelectType(type);
   }
   return (
     <div className="PokemonCard" onClick={clickHandler}>
@@ -18,7 +23,17 @@ function PokemonCard(props) {
       {display(thisPokemon.name)}
       <div className="PokemonCard__types">
         {thisPokemon.types.map((type) => (
-          <button style={{background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.99), ${colorOfType(type)})`}} key={thisPokemon.name + type}>{display(type)}</button>
+          <button
+            style={{
+              background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.99), ${colorOfType(
+                type
+              )})`,
+            }}
+            key={thisPokemon.name + type}
+            onClick={selectTypeHandler.bind(undefined, type)}
+          >
+            {display(type)}
+          </button>
         ))}
       </div>
     </div>

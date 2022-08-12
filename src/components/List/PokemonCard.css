@@ -14,6 +14,7 @@
 }
 
 .PokemonCard__types button{
+    cursor: pointer;
     margin: 7px 0px 3px 2px;
     padding: 1px 4px ;
     border: 1px solid black;
