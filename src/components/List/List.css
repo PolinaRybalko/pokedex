@@ -1,8 +1,15 @@
 .List__container{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 435px;
+    height: 802px;
     margin: auto;
+}
+
+.List__container p{
+    margin: 11px;
+    padding: 0;
 }
 
 .List__list{

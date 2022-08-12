@@ -34,29 +34,25 @@ function List(props) {
       setIsLoading(false);
     });
   }, [offset, type]);
-
-  if (isLoading)
-  {
-    return(<div className="List__container"><p>Is loading... Please, wait</p></div>)
-  }
   return (
     <div className="List__container">
       {type && (
         <div>
-        <button
-          style={{
-            background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.99), ${colorOfType(
-              type
-            )})`,
-          }}
-          onClick={removeTypeHandler}
-          className="List__type-button"
-        >
-          {display(type)}
-        </button>
+          <button
+            style={{
+              background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.99), ${colorOfType(
+                type
+              )})`,
+            }}
+            onClick={removeTypeHandler}
+            className="List__type-button"
+          >
+            {display(type)}
+          </button>
         </div>
       )}
-      <div className="List__list">
+
+      {isLoading ? <p>Loading... Please, wait</p>:<div className="List__list">
         {pokemonsList.map((pokemon) => (
           <PokemonCard
             pokemon={pokemon}
@@ -65,7 +61,7 @@ function List(props) {
             onSelectType={selectTypeHandler}
           />
         ))}
-      </div>
+      </div>}
       <button className="List__button" onClick={loadPokemonsHandler}>
         Load More
       </button>
