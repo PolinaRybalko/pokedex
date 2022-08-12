@@ -32,7 +32,11 @@ function List(props) {
     setIsLoading(true);
     getPokemons(offset, type).then((list) => {
       setPokemonsList(list);
-      setIsLoading(false);
+      if (list.length === 0) {
+        setOffset(0);
+      } else {
+        setIsLoading(false);
+      }
     });
   }, [offset, type]);
   return (
@@ -53,16 +57,20 @@ function List(props) {
         </div>
       )}
 
-      {isLoading ? <p>Loading... Please, wait</p>:<div className="List__list">
-        {pokemonsList.map((pokemon) => (
-          <PokemonCard
-            pokemon={pokemon}
-            key={pokemon.name}
-            onClick={viewPokemonHandler}
-            onSelectType={selectTypeHandler}
-          />
-        ))}
-      </div>}
+      {isLoading ? (
+        <p>Loading... Please, wait</p>
+      ) : (
+        <div className="List__list">
+          {pokemonsList.map((pokemon) => (
+            <PokemonCard
+              pokemon={pokemon}
+              key={pokemon.name}
+              onClick={viewPokemonHandler}
+              onSelectType={selectTypeHandler}
+            />
+          ))}
+        </div>
+      )}
       <button className="List__button" onClick={loadPokemonsHandler}>
         Load More
       </button>
