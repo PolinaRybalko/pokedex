@@ -9,7 +9,7 @@
 }
 
 .PokemonDetail__without-border{
-    border: 0px;
+    border: 1px solid transparent;
 }
 
 .PokemonDetail__container img{
