@@ -1,6 +1,7 @@
 import "./PokemonCard.css";
 import display from "../../helpers/displayString";
 import noImageFound from "../../assets/no-image-found.png";
+import colorOfType from "../../helpers/colorOfType";
 
 function PokemonCard(props) {
   const thisPokemon = props.pokemon;
@@ -17,7 +18,7 @@ function PokemonCard(props) {
       {display(thisPokemon.name)}
       <div className="PokemonCard__types">
         {thisPokemon.types.map((type) => (
-          <button key={thisPokemon.name + type}>{display(type)}</button>
+          <button style={{backgroundColor: colorOfType(type)}} key={thisPokemon.name + type}>{display(type)}</button>
         ))}
       </div>
     </div>
