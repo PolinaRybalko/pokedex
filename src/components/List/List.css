@@ -1,13 +1,13 @@
 .List__container{
     display: flex;
     flex-direction: column;
-    width: 375px;
+    width: 435px;
     margin: auto;
 }
 
 .List__list{
     display: grid;
-    grid-template-columns: repeat(3, 125px);
+    grid-template-columns: repeat(3, 145px);
 }
 
 .List__button{

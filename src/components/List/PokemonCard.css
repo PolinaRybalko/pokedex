@@ -1,18 +1,19 @@
 .PokemonCard{
-    width: 100px;
-    height: 150px;
-    padding: 5px;
+    width: 120px;
+    height: 160px;
+    padding: 3px;
     border: 1px solid;
-    margin: 10px;
+    margin: 5px 10px 10px 10px;
     font-weight: 600;
 }
 
 .PokemonCard__types{
-    width: 100px;
+    width: 120px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .PokemonCard__types button{
-    margin: 3px;
-    padding: 2px;
+    margin: 7px 0px 3px 2px;
+    padding: 0px 3px ;
 }
