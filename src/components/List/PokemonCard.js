@@ -1,5 +1,6 @@
 import "./PokemonCard.css";
 import display from "../../helpers/displayString";
+import noImageFound from "../../assets/no-image-found.png";
 
 function PokemonCard(props) {
   const thisPokemon = props.pokemon;
@@ -8,7 +9,11 @@ function PokemonCard(props) {
   }
   return (
     <div className="PokemonCard" onClick={clickHandler}>
-      <img alt={`${thisPokemon.name} depiction`} src={thisPokemon.imgURL} />
+      {thisPokemon.imgURL ? (
+        <img alt={`${thisPokemon.name} depiction`} src={thisPokemon.imgURL} />
+      ) : (
+        <img alt={"No Depiction found"} src={noImageFound} />
+      )}
       {display(thisPokemon.name)}
       <div className="PokemonCard__types">
         {thisPokemon.types.map((type) => (

@@ -2,6 +2,7 @@ import display from "../../helpers/displayString";
 import displayStat from "../../helpers/displayStat";
 import displayNumber from "../../helpers/displayNumber";
 import "./PokemonDetail.css";
+import noImageFound from "../../assets/no-image-found.png";
 
 function PokemonDetail(props) {
   const thisPokemon = props.pokemon;
@@ -12,7 +13,11 @@ function PokemonDetail(props) {
   }
   return (
     <div className="PokemonDetail__container">
-      <img alt={`${thisPokemon.name} depiction`} src={thisPokemon.imgURL} />
+      {thisPokemon.imgURL ? (
+        <img alt={`${thisPokemon.name} depiction`} src={thisPokemon.imgURL} />
+      ) : (
+        <img alt={"No Depiction found"} src={noImageFound} />
+      )}
       <p>
         {display(thisPokemon.name)} #{displayNumber(thisPokemon.id)}
       </p>
