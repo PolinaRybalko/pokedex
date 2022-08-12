@@ -16,4 +16,5 @@
 .App__container{
   display: flex;
   flex-direction: row;
+  height: 800px;
 }
