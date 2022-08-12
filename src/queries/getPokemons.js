@@ -21,8 +21,14 @@ async function getPokemons(offset, type = "") {
     pokemons = JSON.parse(result).results;
   }
   let pokemonsList = [];
+  let indexOfPokemon = 0;
   for (let pokemonObj of pokemons) {
+    indexOfPokemon += 1;
     const pokemon = type ? pokemonObj.pokemon : pokemonObj;
+    if (type && indexOfPokemon < offset)
+    {
+      continue;
+    }
     const response = await fetch(
       url + "pokemon/" + pokemon.name
     );
@@ -33,12 +39,12 @@ async function getPokemons(offset, type = "") {
       imgURL: properties.sprites.front_default,
       types: properties.types.map((typeObj) => typeObj.type.name),
     });
+    if (pokemonsList.length === 12)
+    {
+      break;
+    }
   }
-  if (type) {
-    return pokemonsList.slice(offset, offset + 12);
-  } else {
-    return pokemonsList;
-  }
+  return pokemonsList;
 }
 
 export default getPokemons;
