@@ -1,4 +1,4 @@
-import display from "../../helpers/displayString";
+import display, { displayStrings } from "../../helpers/displayString";
 import displayStat from "../../helpers/displayStat";
 import displayNumber from "../../helpers/displayNumber";
 import "./PokemonDetail.css";
@@ -24,8 +24,8 @@ function PokemonDetail(props) {
       <table>
         <tbody>
           <tr>
-            <td>Type</td>
-            <td>{thisPokemon.types[0]}</td>
+            <td>{thisPokemon.types.length === 1 ? "Type" : "Types"}</td>
+            <td>{displayStrings(thisPokemon.types)}</td>
           </tr>
           {thisPokemon.stats.map((stat) => {
             return (
