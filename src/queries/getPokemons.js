@@ -1,3 +1,5 @@
+import url from "./queryURl";
+
 async function getPokemons(offset, type = "") {
   let offsetString = "&offset=" + offset;
   if (offset === 0) {
@@ -5,10 +7,10 @@ async function getPokemons(offset, type = "") {
   }
   let response = {};
   if (type) {
-    response = await fetch("https://pokeapi.co/api/v2/type/" + type);
+    response = await fetch(url + "type/" + type);
   } else {
     response = await fetch(
-      "https://pokeapi.co/api/v2/pokemon/?limit=12" + offsetString
+      url + "pokemon/?limit=12" + offsetString
     );
   }
   const result = await response.text();
@@ -22,7 +24,7 @@ async function getPokemons(offset, type = "") {
   for (let pokemonObj of pokemons) {
     const pokemon = type ? pokemonObj.pokemon : pokemonObj;
     const response = await fetch(
-      "https://pokeapi.co/api/v2/pokemon/" + pokemon.name
+      url + "pokemon/" + pokemon.name
     );
     const result = await response.text();
     const properties = JSON.parse(result);
