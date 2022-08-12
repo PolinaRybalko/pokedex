@@ -24,6 +24,7 @@ function List(props) {
   }
 
   function removeTypeHandler() {
+    setOffset(0);
     setType("");
   }
 
