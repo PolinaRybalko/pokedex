@@ -18,7 +18,7 @@ function PokemonCard(props) {
       {display(thisPokemon.name)}
       <div className="PokemonCard__types">
         {thisPokemon.types.map((type) => (
-          <button style={{backgroundColor: colorOfType(type)}} key={thisPokemon.name + type}>{display(type)}</button>
+          <button style={{background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.99), ${colorOfType(type)})`}} key={thisPokemon.name + type}>{display(type)}</button>
         ))}
       </div>
     </div>
