@@ -29,7 +29,7 @@ function colorOfType(type) {
     case "poison":
       return "rgb(255, 158, 174)";
     case "psychic":
-      return "coral";
+      return "rgb(248, 66, 178)";
     case "rock":
       return "rgb(172, 141, 83)";
     case "steel":
