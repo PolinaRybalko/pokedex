@@ -24,9 +24,6 @@
   .App {
     width: 600px;
   }
-  .App__container{
-    height: 1000px;
-  }
 }
 
 @media (max-width: 600px) {

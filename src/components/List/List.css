@@ -37,11 +37,12 @@
 
 @media (max-width: 800px){
     .List__list{
-        grid-template-columns: repeat(2, 120px);
+        grid-template-columns: repeat(3, 120px);
         margin: auto;
     }
     .List__container{
-        width: 290px;
+        width: 370px;
+        height: 700px;
         margin: 0;
     }
 }
