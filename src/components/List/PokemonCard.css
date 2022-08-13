@@ -15,7 +15,7 @@
 
 .PokemonCard__types button{
     cursor: pointer;
-    margin: 5px 0px 2px 2px;
+    margin: 3px 0px 2px 3px;
     padding: 1px 4px ;
     border: 1px solid black;
     border-radius: 5px;
@@ -34,7 +34,7 @@
     }
     .PokemonCard{
         width: 94px;
-        height: 134px;
+        height: 140px;
         font-size: 13px;
         margin: 5px auto;
     }
