@@ -28,12 +28,14 @@
 
 @media (max-width: 600px) {
   .App{
-    width: 430px;
+    width: 380px;
+    margin: auto;
+    padding: 3px;
   }
   .App__header{
     width: 200px;
   }
   .App__container{
-    height: 500px;
+    height: 600px;
   }
 }

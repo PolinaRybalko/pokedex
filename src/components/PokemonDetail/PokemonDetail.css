@@ -42,7 +42,7 @@
 @media (max-width: 600px){
     .PokemonDetail__container{
         width: auto;
-        margin: auto;
+        margin: auto 0;
     }
     .PokemonDetail__container p{
         font-weight: 700;

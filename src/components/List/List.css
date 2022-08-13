@@ -53,8 +53,8 @@
         margin: auto;
     }
     .List__container{
-        width: 130px;
-        height: 450px;
-        margin: auto;
+        width: 120px;
+        height: 400px;
+        margin: 0px auto;
     }
 }
