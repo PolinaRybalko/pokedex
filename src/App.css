@@ -30,4 +30,7 @@
   .App{
     width: 430px;
   }
+  .App__header{
+    width: 200px;
+  }
 }

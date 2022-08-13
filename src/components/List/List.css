@@ -49,11 +49,12 @@
 
 @media (max-width: 600px) {
     .List__list{
-        grid-template-columns: repeat(2, 120px);
+        grid-template-columns: repeat(2, 110px);
         margin: auto;
     }
     .List__container{
         width: 290px;
+        height: 450px;
         margin: 0;
     }
 }
