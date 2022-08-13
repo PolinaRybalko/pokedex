@@ -14,7 +14,7 @@ function List(props) {
   console.log(window.screen.width)
   if (window.screen.width < 600)
   {
-    displayedPockemonsNumber = 8;
+    displayedPockemonsNumber = 6;
   }
   function loadPokemonsHandler() {
     setOffset((prevState) => prevState + displayedPockemonsNumber);
