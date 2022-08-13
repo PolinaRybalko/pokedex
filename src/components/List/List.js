@@ -10,16 +10,10 @@ function List(props) {
   const [offset, setOffset] = useState(0);
   const [type, setType] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  let displayedPockemonsNumber = 12;
-  console.log(window.screen.width)
-  if (window.screen.width < 600)
-  {
-    displayedPockemonsNumber = 6;
-  }
+  let displayedPockemonsNumber = (window.screen.width < 600) ? 3 : 12;
   function loadPokemonsHandler() {
     setOffset((prevState) => prevState + displayedPockemonsNumber);
   }
-
   function viewPokemonHandler(pokemon) {
     props.onShowPokemon(pokemon);
   }
@@ -35,6 +29,7 @@ function List(props) {
   }
 
   useEffect(() => {
+    let displayedPockemonsNumber = (window.screen.width < 600) ? 3 : 12;
     setIsLoading(true);
     getPokemons(offset, type, displayedPockemonsNumber).then((list) => {
       setPokemonsList(list);

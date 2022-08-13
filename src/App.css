@@ -33,4 +33,7 @@
   .App__header{
     width: 200px;
   }
+  .App__container{
+    height: 500px;
+  }
 }

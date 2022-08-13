@@ -29,7 +29,7 @@
 .List__type-button{
     display: flex;
     cursor: pointer;
-    margin: 7px 0px 3px 10px;
+    margin: 7px 5px 3px 10px;
     padding: 1px 4px ;
     border: 1px solid black;
     border-radius: 5px;
@@ -49,11 +49,11 @@
 
 @media (max-width: 600px) {
     .List__list{
-        grid-template-columns: repeat(2, 110px);
+        grid-template-columns: repeat(1, 110px);
         margin: auto;
     }
     .List__container{
-        width: 290px;
+        width: 130px;
         height: 450px;
         margin: 0;
     }
