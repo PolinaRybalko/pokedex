@@ -39,7 +39,7 @@ async function getPokemons(offset, type, limit) {
       imgURL: properties.sprites.front_default,
       types: properties.types.map((typeObj) => typeObj.type.name),
     });
-    if (pokemonsList.length === 12)
+    if (pokemonsList.length === limit)
     {
       break;
     }
