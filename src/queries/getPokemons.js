@@ -1,6 +1,6 @@
 import url from "./queryURl";
 
-async function getPokemons(offset, type = "") {
+async function getPokemons(offset, type, limit) {
   let offsetString = "&offset=" + offset;
   if (offset === 0) {
     offsetString = "";
@@ -10,7 +10,7 @@ async function getPokemons(offset, type = "") {
     response = await fetch(url + "type/" + type);
   } else {
     response = await fetch(
-      url + "pokemon/?limit=12" + offsetString
+      url + "pokemon/?limit=" + limit + offsetString
     );
   }
   const result = await response.text();
