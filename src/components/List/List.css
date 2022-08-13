@@ -34,3 +34,25 @@
     border: 1px solid black;
     border-radius: 5px;
 }
+
+@media (max-width: 800px){
+    .List__list{
+        grid-template-columns: repeat(2, 120px);
+        margin: auto;
+    }
+    .List__container{
+        width: 290px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .List__list{
+        grid-template-columns: repeat(2, 120px);
+        margin: auto;
+    }
+    .List__container{
+        width: 290px;
+        margin: 0;
+    }
+}

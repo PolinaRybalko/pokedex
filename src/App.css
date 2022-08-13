@@ -18,3 +18,19 @@
   flex-direction: row;
   height: 800px;
 }
+
+
+@media (max-width: 800px){
+  .App {
+    width: 600px;
+  }
+  .App__container{
+    height: 1000px;
+  }
+}
+
+@media (max-width: 600px) {
+  .App{
+    width: 430px;
+  }
+}

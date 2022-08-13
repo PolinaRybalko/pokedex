@@ -3,7 +3,7 @@
     height: 160px;
     padding: 3px;
     border: 1px solid;
-    margin: 5px 10px 10px 10px;
+    margin: 10px auto;
     font-weight: 600;
 }
 
@@ -25,4 +25,23 @@
     height: 96px;
     width: 96px;
     margin: auto;
+}
+
+@media (max-width: 800px) {
+    .PokemonCard img{
+        height: 75px;
+        width: 75px;
+    }
+    .PokemonCard{
+        width: 94px;
+        height: 134px;
+        font-size: 13px;
+        margin: 5px auto;
+    }
+    .PokemonCard__types{
+        width: 94px;
+    }
+    .PokemonCard__types button{
+        font-size: 11px;
+    }
 }

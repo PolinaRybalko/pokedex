@@ -31,3 +31,23 @@
 .PokemonDetail__container td, th{
     border: 1px solid black;
 }
+
+@media (max-width: 800px){
+    .PokemonDetail__container{
+        width: 190px;
+        margin: auto 10px;
+    }
+  }
+
+@media (max-width: 600px){
+    .PokemonDetail__container{
+        width: auto;
+    }
+    .PokemonDetail__container p{
+        font-weight: 700;
+        font-size: 15px;
+    }
+    .PokemonDetail__container table{
+        font-size: 12px;
+    }
+  }
