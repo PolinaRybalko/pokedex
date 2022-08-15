@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PokemonCard from "./PokemonCard";
 import TypeButton from "../TypeButton/TypeButton";
 import getPokemons from "../../queries/getPokemons";
@@ -9,7 +9,8 @@ function List(props) {
   const [pokemonsList, setPokemonsList] = useState([]);
   const [offset, setOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  let displayedPockemonsNumber = window.screen.width < 600 ? 3 : (window.screen.width < 800 ? 6 : 12);
+  let displayedPockemonsNumber =
+    window.screen.width < 600 ? 3 : window.screen.width < 800 ? 6 : 12;
   function loadPokemonsHandler() {
     setOffset((prevState) => prevState + displayedPockemonsNumber);
   }
@@ -27,8 +28,14 @@ function List(props) {
     props.onRemoveType();
   }
 
+  let type = useRef();
+
   useEffect(() => {
-    let displayedPockemonsNumber = window.screen.width < 600 ? 3 : (window.screen.width < 800 ? 6 : 12);
+    if (type.current !== props.type) {
+      setOffset(0);
+    }
+    let displayedPockemonsNumber =
+      window.screen.width < 600 ? 3 : window.screen.width < 800 ? 6 : 12;
     setIsLoading(true);
     let list = [];
     async function fetchPokemons() {
@@ -54,6 +61,7 @@ function List(props) {
       }
     }
     fetchPokemons();
+    type.current = props.type;
   }, [offset, props.type, displayedPockemonsNumber]);
   return (
     <div className="List__container">
