@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard";
+import TypeButton from "../TypeButton/TypeButton";
 import getPokemons from "../../queries/getPokemons";
-import "./List.css";
-import colorOfType from "../../helpers/colorOfType";
-import display from "../../helpers/displayString";
 import getPokemonsByType from "../../queries/getPokemonsByType";
+import "./List.css";
 
 function List(props) {
   const [pokemonsList, setPokemonsList] = useState([]);
   const [offset, setOffset] = useState(0);
-  const [type, setType] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   let displayedPockemonsNumber = window.screen.width < 600 ? 3 : 12;
   function loadPokemonsHandler() {
@@ -21,12 +19,12 @@ function List(props) {
 
   function selectTypeHandler(type) {
     setOffset(0);
-    setType(type);
+    props.onSelectType(type);
   }
 
   function removeTypeHandler() {
     setOffset(0);
-    setType("");
+    props.onRemoveType();
   }
 
   useEffect(() => {
@@ -34,41 +32,47 @@ function List(props) {
     setIsLoading(true);
     let list = [];
     async function fetchPokemons() {
-      if (type) {
-        list = await getPokemonsByType(offset, type, displayedPockemonsNumber);
+      if (props.type) {
+        list = await getPokemonsByType(
+          offset,
+          props.type,
+          displayedPockemonsNumber
+        );
         setPokemonsList(list);
       } else {
         list = await getPokemons(offset, displayedPockemonsNumber);
         setPokemonsList(list);
       }
       if (list.length === 0) {
-        setOffset(0);
+        if (offset > 0) {
+          setOffset(0);
+        } else {
+          setIsLoading(false);
+        }
       } else {
         setIsLoading(false);
       }
     }
     fetchPokemons();
-  }, [offset, type, displayedPockemonsNumber]);
+  }, [offset, props.type, displayedPockemonsNumber]);
   return (
     <div className="List__container">
-      {type && (
-        <div>
-          <button
-            style={{
-              background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.99), ${colorOfType(
-                type
-              )})`,
-            }}
+      {props.type && (
+        <div className="List__type-button-container">
+          <TypeButton
             onClick={removeTypeHandler}
-            className="List__type-button"
-          >
-            {display(type)}
-          </button>
+            type={props.type}
+            key={props.type}
+          />
         </div>
       )}
 
-      {isLoading ? (
-        <p>Loading... Please, wait</p>
+      {isLoading || pokemonsList.length === 0 ? (
+        pokemonsList.length === 0 ? (
+          <p>No Pokemons of this type found.</p>
+        ) : (
+          <p>Loading... Please, wait</p>
+        )
       ) : (
         <div className="List__list">
           {pokemonsList.map((pokemon) => (

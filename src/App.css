@@ -19,6 +19,10 @@
   height: 822px;
 }
 
+.App__second-column{
+  width: 300px;
+}
+
 
 @media (max-width: 800px){
   .App {
@@ -26,6 +30,9 @@
   }
   .App__container{
     height: 700px;
+  }
+  .App__second-column{
+    width: 250px;
   }
 }
 
@@ -40,5 +47,8 @@
   }
   .App__container{
     height: 514px;
+  }
+  .App__second-column{
+    width: 180px;
   }
 }
