@@ -39,6 +39,10 @@ function PokemonDetail(props) {
             <td>Weight</td>
             <td>{thisPokemon.weight}</td>
           </tr>
+          <tr>
+            <td>Total moves</td>
+            <td>{thisPokemon.totalMoves}</td>
+          </tr>
         </tbody>
       </table>
     </div>

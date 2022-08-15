@@ -13,6 +13,7 @@ async function getPokemonInfo(pokemon) {
       return { name: statObj.stat.name, baseValue: statObj.base_stat };
     }),
     id: pokemonInfo.id,
+    totalMoves: pokemonInfo.moves.length
   };
   return detailedPokemon;
 }
