@@ -32,25 +32,22 @@ function List(props) {
   useEffect(() => {
     let displayedPockemonsNumber = window.screen.width < 600 ? 3 : 12;
     setIsLoading(true);
-    if (type) {
-      getPokemonsByType(offset, type, displayedPockemonsNumber).then((list) => {
+    let list = [];
+    async function fetchPokemons() {
+      if (type) {
+        list = await getPokemonsByType(offset, type, displayedPockemonsNumber);
         setPokemonsList(list);
-        if (list.length === 0) {
-          setOffset(0);
-        } else {
-          setIsLoading(false);
-        }
-      });
-    } else {
-      getPokemons(offset, displayedPockemonsNumber).then((list) => {
+      } else {
+        list = await getPokemons(offset, displayedPockemonsNumber);
         setPokemonsList(list);
-        if (list.length === 0) {
-          setOffset(0);
-        } else {
-          setIsLoading(false);
-        }
-      });
+      }
+      if (list.length === 0) {
+        setOffset(0);
+      } else {
+        setIsLoading(false);
+      }
     }
+    fetchPokemons();
   }, [offset, type, displayedPockemonsNumber]);
   return (
     <div className="List__container">
