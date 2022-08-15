@@ -1,17 +1,19 @@
 import url from "./queryURl";
 
-async function getPokemons(offset, limit) {
-  let offsetString = "&offset=" + offset;
-  if (offset === 0) {
-    offsetString = "";
-  }
+async function getPokemonsByType(offset, type, limit) {
   let response = {};
-  response = await fetch(url + "pokemon/?limit=" + limit + offsetString);
+  response = await fetch(url + "type/" + type);
   const result = await response.text();
   let pokemons = {};
-  pokemons = JSON.parse(result).results;
+  pokemons = JSON.parse(result).pokemon;
   let pokemonsList = [];
-  for (let pokemon of pokemons) {
+  let indexOfPokemon = 0;
+  for (let pokemonObj of pokemons) {
+    indexOfPokemon += 1;
+    const pokemon = pokemonObj.pokemon;
+    if (type && indexOfPokemon <= offset) {
+      continue;
+    }
     const response = await fetch(url + "pokemon/" + pokemon.name);
     const result = await response.text();
     const properties = JSON.parse(result);
@@ -20,8 +22,11 @@ async function getPokemons(offset, limit) {
       imgURL: properties.sprites.front_default,
       types: properties.types.map((typeObj) => typeObj.type.name),
     });
+    if (pokemonsList.length === limit) {
+      break;
+    }
   }
   return pokemonsList;
 }
 
-export default getPokemons;
+export default getPokemonsByType;
