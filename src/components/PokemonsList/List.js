@@ -9,7 +9,7 @@ function List(props) {
   const [pokemonsList, setPokemonsList] = useState([]);
   const [offset, setOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  let displayedPockemonsNumber = window.screen.width < 600 ? 3 : 12;
+  let displayedPockemonsNumber = window.screen.width < 600 ? 3 : (window.screen.width < 800 ? 6 : 12);
   function loadPokemonsHandler() {
     setOffset((prevState) => prevState + displayedPockemonsNumber);
   }
@@ -28,7 +28,7 @@ function List(props) {
   }
 
   useEffect(() => {
-    let displayedPockemonsNumber = window.screen.width < 600 ? 3 : 12;
+    let displayedPockemonsNumber = window.screen.width < 600 ? 3 : (window.screen.width < 800 ? 6 : 12);
     setIsLoading(true);
     let list = [];
     async function fetchPokemons() {

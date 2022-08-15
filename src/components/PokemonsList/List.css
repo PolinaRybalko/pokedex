@@ -31,11 +31,11 @@
 
 @media (max-width: 800px){
     .List__list{
-        grid-template-columns: repeat(3, 120px);
-        margin: 0 auto;
+        grid-template-columns: repeat(2, 150px);
+        margin: 0;
     }
     .List__container{
-        width: 370px;
+        width: 300px;
         height: 700px;
         margin: 0;
     }

@@ -32,7 +32,8 @@
     height: 700px;
   }
   .App__second-column{
-    width: 250px;
+    width: 240px;
+    margin: 0 auto;
   }
 }
 
