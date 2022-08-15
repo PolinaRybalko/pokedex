@@ -79,7 +79,7 @@ function List(props) {
         pokemonsList.length === 0 ? (
           <p>No Pokemons of this type found.</p>
         ) : (
-          <p>Loading... Please, wait</p>
+          <p>Loading... Please wait</p>
         )
       ) : (
         <div className="List__list">
