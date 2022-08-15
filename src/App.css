@@ -16,13 +16,16 @@
 .App__container{
   display: flex;
   flex-direction: row;
-  height: 800px;
+  height: 822px;
 }
 
 
 @media (max-width: 800px){
   .App {
     width: 600px;
+  }
+  .App__container{
+    height: 700px;
   }
 }
 
@@ -36,6 +39,6 @@
     width: 200px;
   }
   .App__container{
-    height: 600px;
+    height: 514px;
   }
 }
