@@ -40,7 +40,7 @@
   .App{
     width: auto;
     margin: auto;
-    padding: 3px;
+    padding: 0 20px;
   }
   .App__header{
     width: 200px;
@@ -49,6 +49,7 @@
     height: 514px;
   }
   .App__second-column{
-    width: 180px;
+    width: 200px;
+    margin: 0 10px;
   }
 }

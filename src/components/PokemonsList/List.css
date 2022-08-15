@@ -32,7 +32,7 @@
 @media (max-width: 800px){
     .List__list{
         grid-template-columns: repeat(3, 120px);
-        margin: auto;
+        margin: 0 auto;
     }
     .List__container{
         width: 370px;
