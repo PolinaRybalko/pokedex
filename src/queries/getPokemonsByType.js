@@ -11,7 +11,7 @@ async function getPokemonsByType(offset, type, limit) {
   for (let pokemonObj of pokemons) {
     indexOfPokemon += 1;
     const pokemon = pokemonObj.pokemon;
-    if (type && indexOfPokemon <= offset) {
+    if (indexOfPokemon <= offset) {
       continue;
     }
     const response = await fetch(url + "pokemon/" + pokemon.name);
