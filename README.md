@@ -4,9 +4,9 @@ Pokedex helps you navigate in the world of Pokemons.
 
 ## How to use
 
-You can see a list of pokemons on the left. Upon clicking a Pokemon you can see the detailed information about it on the right./
+You can see a list of pokemons on the left. Upon clicking a Pokemon you can see the detailed information about it on the right.
 
-You can search for Pokemons by type if you click on the buttons below the pokemons.
+You can search for Pokemons by type. To do that you can click the button below a pokemon in the list or one of the buttons on the right.
 
 ## Instalation
 
