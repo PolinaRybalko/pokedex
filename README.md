@@ -10,7 +10,7 @@ You can search for Pokemons by type. To do that you can click the button below a
 
 ## Instalation
 
-In the project directory, you can run:
+You need npm in order to run this app. In the project directory, run:
 
 ### `npm start`
 
