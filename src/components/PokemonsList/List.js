@@ -72,6 +72,7 @@ function List(props) {
             onClick={removeTypeHandler}
             type={props.type}
             key={props.type}
+            isDeleteable = {true}
           />
         </div>
       )}

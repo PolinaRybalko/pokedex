@@ -15,7 +15,7 @@ function TypesList(props) {
   return (
     <div>
       {typesList.map((type) => (
-        <TypeButton onClick={selectTypeHandler.bind(undefined, type)} type={type} key={type}/>
+        <TypeButton onClick={selectTypeHandler.bind(undefined, type)} type={type} key={type} isDeleteable = {false}/>
       ))}
     </div>
   );

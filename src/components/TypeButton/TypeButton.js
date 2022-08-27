@@ -14,7 +14,7 @@ function TypeButton(props) {
           className="TypeButton__type-button"
           onClick={props.onClick}
         >
-          {display(props.type)}
+          {display(props.type)}{props.isDeleteable && " 🗙"}
         </button>
     )
 }

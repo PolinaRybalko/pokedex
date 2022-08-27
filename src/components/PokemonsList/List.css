@@ -1,5 +1,4 @@
 .List__container{
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
