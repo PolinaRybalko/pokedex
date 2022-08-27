@@ -95,7 +95,7 @@ function List(props) {
           ))}
         </div>
       )}
-      <button className="List__button" disabled={isLoading} onClick={loadPokemonsHandler}>
+      <button className="List__button" disabled={isLoading || pokemonsList.length === 0} onClick={loadPokemonsHandler}>
         Load More
       </button>
     </div>
