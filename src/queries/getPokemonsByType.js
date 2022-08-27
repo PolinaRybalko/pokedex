@@ -6,7 +6,7 @@ async function getPokemonsByType(offset, type, limit) {
   const result = await response.text();
   let pokemons = {};
   pokemons = JSON.parse(result).pokemon;
-  let pokemonsList = [];
+  let pokemonsListPromises = [];
   let indexOfPokemon = 0;
   for (let pokemonObj of pokemons) {
     indexOfPokemon += 1;
@@ -14,19 +14,21 @@ async function getPokemonsByType(offset, type, limit) {
     if (indexOfPokemon <= offset) {
       continue;
     }
-    const response = await fetch(url + "pokemon/" + pokemon.name);
-    const result = await response.text();
-    const properties = JSON.parse(result);
-    pokemonsList.push({
-      name: pokemon.name,
-      imgURL: properties.sprites.front_default,
-      types: properties.types.map((typeObj) => typeObj.type.name),
-    });
-    if (pokemonsList.length === limit) {
+    pokemonsListPromises.push(
+      fetch(url + "pokemon/" + pokemon.name).then((response) => response.json())
+    );
+    if (pokemonsListPromises.length === limit) {
       break;
     }
   }
-  return pokemonsList;
+  const pokemonsList = await Promise.all(pokemonsListPromises);
+  return pokemonsList.map((pokemon) => {
+    return {
+      name: pokemon.name,
+      imgURL: pokemon.sprites.front_default,
+      types: pokemon.types.map((typeObj) => typeObj.type.name),
+    };
+  });
 }
 
 export default getPokemonsByType;

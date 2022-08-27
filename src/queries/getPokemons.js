@@ -10,18 +10,18 @@ async function getPokemons(offset, limit) {
   const result = await response.text();
   let pokemons = {};
   pokemons = JSON.parse(result).results;
-  let pokemonsList = [];
-  for (let pokemon of pokemons) {
-    const response = await fetch(url + "pokemon/" + pokemon.name);
-    const result = await response.text();
-    const properties = JSON.parse(result);
-    pokemonsList.push({
+  let pokemonsList = await Promise.all(
+    pokemons.map((pokemon) =>
+      fetch(url + "pokemon/" + pokemon.name).then((response) => response.json())
+    )
+  );
+  return pokemonsList.map((pokemon) => {
+    return {
       name: pokemon.name,
-      imgURL: properties.sprites.front_default,
-      types: properties.types.map((typeObj) => typeObj.type.name),
-    });
-  }
-  return pokemonsList;
+      imgURL: pokemon.sprites.front_default,
+      types: pokemon.types.map((typeObj) => typeObj.type.name),
+    };
+  });
 }
 
 export default getPokemons;
