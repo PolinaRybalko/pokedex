@@ -78,7 +78,7 @@ function List(props) {
       )}
 
       {isLoading || pokemonsList.length === 0 ? (
-        pokemonsList.length === 0 ? (
+        (pokemonsList.length === 0 && !isLoading) ? (
           <p>No Pokemons of this type found.</p>
         ) : (
           <p>Loading... Please wait</p>
