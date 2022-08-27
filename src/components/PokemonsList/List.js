@@ -63,6 +63,7 @@ function List(props) {
     fetchPokemons();
     type.current = props.type;
   }, [offset, props.type, displayedPockemonsNumber]);
+
   return (
     <div className="List__container">
       {props.type && (
@@ -93,7 +94,7 @@ function List(props) {
           ))}
         </div>
       )}
-      <button className="List__button" onClick={loadPokemonsHandler}>
+      <button className="List__button" disabled={isLoading} onClick={loadPokemonsHandler}>
         Load More
       </button>
     </div>

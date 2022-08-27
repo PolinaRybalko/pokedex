@@ -17,12 +17,18 @@
 }
 
 .List__button{
+    cursor: pointer;
     background-color: rgb(43, 139, 255);
     color: white;
     font-weight: 900;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid black;
+}
+
+.List__button[disabled]{
+    cursor: auto;
+    background-color: grey;
 }
 
 .List__type-button-container{
